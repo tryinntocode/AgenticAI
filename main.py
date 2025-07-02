@@ -21,8 +21,8 @@ app.add_middleware(
 # Mount static directory for frontend
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-MISTRAL_API_KEY = "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"
-MISTRAL_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
+MISTRAL_API_KEY = ""
+MISTRAL_MODEL = ""
 
 # In-memory storage for the uploaded CSV (per process, not per user)
 uploaded_df: Optional[pd.DataFrame] = None
