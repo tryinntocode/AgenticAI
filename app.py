@@ -5,8 +5,8 @@ import requests
 import json
 import pandas as pd
 
-MISTRAL_API_KEY = "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"
-MISTRAL_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
+MISTRAL_API_KEY = ""
+MISTRAL_MODEL = ""
 
 # Function to chat with CSV using Mistral (OpenRouter)
 def chat_with_csv_mistral(df, prompt):
