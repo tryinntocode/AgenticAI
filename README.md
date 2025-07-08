@@ -1,52 +1,108 @@
-# ChatCSV-Streamlit-App
-An LLM powered ChatCSV Streamlit app so you can chat with your CSV files.
+# 📊 ChatCSV – Chat with Your CSV Using Mistral LLM
 
-<h1> How to run the app?</h1>
-<p> OpenAI instantly revokes the API key once it detects that the key has been exposed publicly. So, that's the only thing to take care of.</p>
- 
- Generate your OpenAI API key here: <a href="https://platform.openai.com/account/api-keys"> Click Here </a>
-<br>
-<h2> Run locally </h2>
-<p> If you are running the app locally, then you can freely use the API key. <br>
-  in app.py, line 11: <br>
-  
-  ```
-  
-  openai_api_key = 's#-#####################jz'
-  
-  #can set the API key directly, if running locally.
-  
-  ```
- 
- Else if you want to keep the key private, store it in an environment variable named 'API_KEY' in your OS and then refer the key in app.py by:
- 
-  ```
-  from dotenv import load_dotenv
-  load_dotenv()
-  openai_api_key = os.getenv("OPENAI_API_KEY")
- 
-  ```
-  
- 
-  Henceforth make sure to have Streamlit installed in your system. Run the app by:
-  
-  ```
-  git clone https://github.com/AIAnytime/ChatCSV-Streamlit-App.git
-  cd ChatCSV-Streamlit-App
-  pip install -r requirements.txt
-  streamlit run app.py
-  
-  ```
- <h2> Run on Cloud </h2>
- 
- <p> You can also run this app locally on Streamlit Cloud, which is a free Cloud Hosting Service. 
- <br>
- Make a .env  file and store the key as 
- 
- ```
- OPENAI_API_KEY='##-###############'
- 
- ```
- There's already a .gitignore file with .env mentioned in it. If not, make one. <br>
- Remaining code remains the same.
+![Screenshot 2025-07-08 204628](https://github.com/user-attachments/assets/519efc8c-e061-45c3-8425-d460a56b9bd6)
 
+
+ChatCSV is a lightweight web app that lets you **interact with your CSV files using natural language**. Built with **FastAPI** and a **static HTML/CSS/JS frontend**, it uses **Mistral LLM via OpenRouter** to provide intelligent responses based on your data.
+
+> ⚠️ Note: The previous Streamlit version (`app.py`) is deprecated. The app now runs with a FastAPI backend and static frontend.
+
+---
+
+## 🚀 Features
+
+- 📁 Upload your own CSV file
+- 💬 Ask questions like “What is the average salary?” or “Which product sold the most?”
+- 🧠 Powered by Mistral LLM (through OpenRouter API)
+- ⚡ Fast and simple – no database required
+- 🌐 Accessible through a local web browser
+
+---
+
+## 🛠️ Tech Stack
+
+- **FastAPI** – Backend API
+- **Static HTML/CSS/JS** – Frontend UI (served from `/static`)
+- **Mistral LLM via OpenRouter** – LLM inference engine
+- **Pandas** – CSV processing
+- **Uvicorn** – ASGI server
+
+---
+
+## 📂 Folder Structure
+
+```
+.
+├── main.py           # FastAPI backend
+├── app.py            # (Deprecated) Streamlit version
+├── requirements.txt  # Python dependencies
+├── .gitignore
+└── static/           # Frontend files (index.html, style.css, etc.)
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/chatcsv.git
+cd chatcsv
+```
+
+### 2. Install Python dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Running the App
+
+### 1. Start the FastAPI backend
+
+```bash
+uvicorn main:app --reload
+```
+
+### 2. Open in browser
+
+Go to: [http://localhost:8000](http://localhost:8000)  
+It will automatically redirect to `/static/index.html`.
+
+---
+
+## 🧪 Example Usage
+
+1. Upload a CSV file with tabular data.
+2. Enter queries like:
+   - "What is the average age?"
+   - "List top 5 products by revenue"
+3. Get real-time answers from the LLM.
+
+---
+
+## 🔐 API Keys
+
+The backend uses the OpenRouter API with a hardcoded Mistral key.
+
+> 🚨 You should **replace the placeholder key** with your own for production use:
+- Go to [https://openrouter.ai](https://openrouter.ai) and sign up for an API key.
+- Replace the `MISTRAL_API_KEY` in `main.py` with your actual key.
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 🙌 Acknowledgements
+
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [OpenRouter](https://openrouter.ai/)
+- [Mistral](https://mistral.ai/)
+- [Pandas](https://pandas.pydata.org/)
